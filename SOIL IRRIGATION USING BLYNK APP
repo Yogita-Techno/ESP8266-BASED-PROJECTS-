@@ -1,0 +1,29 @@
+#define BLYNK_TEMPLATE_ID "TemplateID"
+#define BLYNK_DEVICE_NAME "Control Pump"
+#define BLYNK_AUTH_TOKEN "Auth Token"
+
+
+#define BLYNK_PRINT Serial
+#include <ESP8266WiFi.h> 
+ 
+#include <BlynkSimpleEsp8266.h>
+ 
+
+char auth[] = BLYNK_AUTH_TOKEN;
+
+char ssid[] = "987654321";  // Enter your wifi name
+char pass[] = "987654321";  // Enter your wifi password
+
+int relaypin = D4;
+void setup()
+{     
+  Serial.begin(115200);
+  Blynk.begin(auth, ssid, pass);    
+  pinMode(relaypin,OUTPUT);
+ 
+}
+
+void loop()
+{
+  Blynk.run(); 
+ }
